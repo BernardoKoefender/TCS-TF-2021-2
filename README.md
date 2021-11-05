@@ -1,3 +1,8 @@
+Travis CI
+=========
+
+[<img alt="Build Status" src="https://app.travis-ci.com/BernardoKoefender/TCS-TF-2021-2.svg?branch=main" height="40">][travis-url]
+
 sort
 ====
 
