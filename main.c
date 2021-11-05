@@ -5,6 +5,9 @@
 #include "array.h"
 #include "sort.h"
 
+// Disable printf
+#define printf(...)
+
 int main(int argc, char **argv) {
     int i, method, size, array_type, print_vector = 0;
 
