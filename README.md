@@ -60,3 +60,7 @@ To run the program, type:
 |               | descending    | 
 |               | almost        | 
 | -P            |
+
+
+[travis-url]: https://app.travis-ci.com/BernardoKoefender/TCS-TF-2021-2
+[travis-img]: https://app.travis-ci.com/BernardoKoefender/TCS-TF-2021-2.svg?branch=main
