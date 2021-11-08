@@ -19,84 +19,120 @@ TEST_TEAR_DOWN(Sort)
 {
 }
 
-TEST(Sort, SelectionSort)
+TEST(Sort, TestCase_0)
 {
-  //void selection_sort(int *vet, int tam);
-  int input_array[3]    = {2,1,3};
-  int output_array[3] = {1,2,3};
+  int i;
+  char error_msg[64];
 
-  TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(output_array, sort_array(input_array, 3, SELECTION), 3, "Test ? failed.");
+  // Run this test for all the 6 algorithms
+  for(i=0; i<=5; i++)
+  {
+    int size = 1;
+    int input_array[1] = {5};
+    int output_array[1] = {5};
+    sprintf(error_msg, "TestCase_0 failed at iteration %d.",i);
+    TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(output_array, sort_array(input_array, size, i), size, error_msg);
+  }
 }
 
-TEST(Sort, InsertionSort)
+TEST(Sort, TestCase_1)
 {
-  //void insertion_sort(int *array, int size);
-  int input_array[3]    = {2,1,3};
-  int output_array[3] = {1,2,3};
+  char error_msg[64];
 
-  TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(output_array, sort_array(input_array, 3, INSERTION), 3, "Test ? failed.");
+  int size = 4;
+  int input_array[4] = {5,2,6,1};
+  int output_array[4] = {5,2,6,1};
+  sprintf(error_msg, "TestCase_1 failed.");
+  TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(output_array, sort_array(input_array, size, -1), size, error_msg);
 }
 
-TEST(Sort, ShellSort)
+TEST(Sort, TestCase_2)
 {
-  //void shell_sort(int *vet, int size);
-  int input_array[3]    = {2,1,3};
-  int output_array[3] = {1,2,3};
-
-  TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(output_array, sort_array(input_array, 3, SHELL), 3, "Test ? failed.");
-}
-
-TEST(Sort, QuickSort)
-{
-  //void shell_sort(int *vet, int size);
-  int input_array[7]    = {2,1,3,5,4,6,2};
-  int output_array[7] = {1,2,2,3,4,5,6};
-
-  TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(output_array, sort_array(input_array, 7, QUICK), 7, "Test ? failed.");
-}
-
-TEST(Sort, HeapSort)
-{
-  //void heap_sort(int vet[], int n);
-  int input_array[3]    = {2,1,3};
-  int output_array[3] = {1,2,3};
+  char error_msg[64];
   
-  TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(output_array, sort_array(input_array, 3, HEAP), 3, "Test ? failed.");
+  int size = 4;
+  int input_array[4] = {3,7,1,1};
+  int output_array[4] = {3,7,1,1};
+  sprintf(error_msg, "Testcase_2 failed.");
+  TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(output_array, sort_array(input_array, size, 6), size, error_msg);
 }
 
-TEST(Sort, MergeSort)
+TEST(Sort, TestCase_3)
 {
-  //void merge_sort(int* vet, int n);
-  int input_array[3]    = {2,1,3};
-  int output_array[3] = {1,2,3};
-  
-  TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(output_array, sort_array(input_array, 3, MERGE), 3, "Test ? failed.");
+  int i;
+  char error_msg[64];
+
+  // Run this test for all the 6 algorithms
+  for(i=0; i<=5; i++)
+  {
+    int size = 6;
+    int input_array[6] = {1,4,4,7,10,13};
+    int output_array[6] = {1,4,4,7,10,13};
+    sprintf(error_msg, "TestCase_3 failed at iteration %d.",i);
+    TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(output_array, sort_array(input_array, size, i), size, error_msg);
+  }
 }
 
-TEST(Sort, Aditional)
+TEST(Sort, TestCase_4)
 {
-  //void merge_sort(int* vet, int n);
-  int input_array[3]    = {2,1,3};
-  //int output_array[3] = {1,2,3};
-  
-  // Test algorithm ID that doesnt exists. In this case, the output array should be
-  //equal to the input array.
-  TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(input_array, sort_array(input_array, 3, -1), 3, "Test ? failed.");
-  TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(input_array, sort_array(input_array, 3, 7), 3, "Test ? failed.");
+  int i;
+  char error_msg[64];
 
-  //TEST_FOR_ALL(input_array, output_array, 3);
-
+  // Run this test for all the 6 algorithms
+  for(i=0; i<=5; i++)
+  {
+    int size = 8;
+    int input_array[8] = {3,3,3,3,3,2,3,3};
+    int output_array[8] = {2,3,3,3,3,3,3,3};
+    sprintf(error_msg, "TestCase_4 failed at iteration %d.",i);
+    TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(output_array, sort_array(input_array, size, i), size, error_msg);
+  }
 }
 
-// runs the same input through all algorithms
-//TEST_FOR_ALL(int *input, int *output, int size)
-//{
-//
-//
-//  TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(input, sort_array(output, size, 0), size, "Test ? failed.");
-//  TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(input, sort_array(output, size, 1), size, "Test ? failed.");
-//  TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(input, sort_array(output, size, 2), size, "Test ? failed.");
-//  TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(input, sort_array(output, size, 3), size, "Test ? failed.");
-//  TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(input, sort_array(output, size, 4), size, "Test ? failed.");
-//  TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(input, sort_array(output, size, 5), size, "Test ? failed.");
-//}
+TEST(Sort, TestCase_5)
+{
+  int i;
+  char error_msg[64];
+
+  // Run this test for all the 6 algorithms
+  for(i=0; i<=5; i++)
+  {
+    int size = 4;
+    int input_array[5] = {5,4,3,2,1};
+    int output_array[4] = {2,3,4,5};
+    sprintf(error_msg, "TestCase_5 failed at iteration %d.",i);
+    TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(output_array, sort_array(input_array,4, i), size, error_msg);
+  }
+}
+
+TEST(Sort, TestCase_6)
+{
+  int i;
+  char error_msg[64];
+
+  // Run this test for all the 6 algorithms
+  for(i=0; i<=5; i++)
+  {
+    int size = 5;
+    int input_array[5] = {'a','4','b','3','1'};
+    int output_array[5] = {'1','3','4','a','b'};
+    sprintf(error_msg, "TestCase_6 failed at iteration %d.",i);
+    TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(output_array, sort_array(input_array, 5, i), size, error_msg);
+  }
+}
+
+TEST(Sort, TestCase_7)
+{
+  int i;
+  char error_msg[64];
+
+  // Run this test for all the 6 algorithms
+  for(i=0; i<=5; i++)
+  {
+    int size = 8;
+    int input_array[8] = {0,-5,3,-60,60,13,5,-1};
+    int output_array[8] = {-60,-5,-1,0,3,5,13,60};
+    sprintf(error_msg, "TestCase_7 failed at iteration %d.",i);
+    TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(output_array, sort_array(input_array, 8, i), size, error_msg);
+  }
+}
