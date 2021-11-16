@@ -1,4 +1,5 @@
 #include "../sort.h"
+#include "../array.c"
 #include "unity.h"
 #include "unity_fixture.h"
 
@@ -117,7 +118,7 @@ TEST(Sort, TestCase_6)
     int input_array[5] = {'a','4','b','3','1'};
     int output_array[5] = {'1','3','4','a','b'};
     sprintf(error_msg, "TestCase_6 failed at iteration %d.",i);
-    TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(output_array, sort_array(input_array, 5, i), size, error_msg);
+    TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(output_array, sort_array(input_array, size, i), size, error_msg);
   }
 }
 
@@ -133,6 +134,6 @@ TEST(Sort, TestCase_7)
     int input_array[8] = {0,-5,3,-60,60,13,5,-1};
     int output_array[8] = {-60,-5,-1,0,3,5,13,60};
     sprintf(error_msg, "TestCase_7 failed at iteration %d.",i);
-    TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(output_array, sort_array(input_array, 8, i), size, error_msg);
+    TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(output_array, sort_array(input_array, size, i), size, error_msg);
   }
 }

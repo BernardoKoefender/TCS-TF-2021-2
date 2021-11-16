@@ -79,31 +79,34 @@ sanitizer:
 	./app -a merge     -n 10 -s random
 	@echo
 
-unity:
+unity: clean
 	$(info -------------------------- unity)
 	@gcc $(CFLAGS) $(INC_DIRS) $(SRC_FILES) $(GCOVFLAGS) -o $(TARGET) && ./$(TARGET) -v && gcov -b sort.gcda
 
 comp_app: clean
 	@gcc -o app main.c array.c sort.c get_opt.c
 
-run_selection: 
+run_selection: comp_app
 	./app -a selection -n 20 -s random -P
 
-run_insertion: 
+run_insertion: comp_app
 	./app -a insertion -n 20 -s random -P
 
-run_shell: 
+run_shell: comp_app
 	./app -a shell     -n 20 -s random -P
 
-run_quick: 
+run_quick: comp_app
 	./app -a quick     -n 20 -s random -P
 
-run_heap: 
+run_heap: comp_app
 	./app -a heap      -n 20 -s random -P
 
-run_merge: 
+run_merge: comp_app
 	./app -a merge     -n 20 -s random -P
 
 clean:
 	@rm -fr $(sort) *.o cov* *.dSYM *.gcda *.gcno *.gcov *.out
 	@rm -f app
+
+graph:
+	dot -Tpng graph.dot -o graph.png && eog graph.png 
